@@ -9,15 +9,16 @@ String.prototype.repeat = function (num) {
   // Add segments to a slider
   $.fn.addSliderSegments = function () {
     return this.each(function () {
-      var $this = $(this),
-          option = $this.slider('option'),
-          amount = (option.max - option.min)/option.step,
-          orientation = option.orientation;
-      if ( 'vertical' === orientation ) {
-        var output = '', i;
+      var $this = $(this);
+      var option = $this.slider('option');
+      var amount = (option.max - option.min) / option.step;
+      var orientation = option.orientation;
+      if ('vertical' === orientation) {
+        var output = '';
+        var i;
         console.log(amount);
         for (i = 1; i <= amount - 1; i++) {
-            output += '<div class="ui-slider-segment" style="top:' + 100 / amount * i + '%;"></div>';
+          output += '<div class="ui-slider-segment" style="top:' + 100 / amount * i + '%;"></div>';
         }
         $this.prepend(output);
       } else {
